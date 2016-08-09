@@ -1,0 +1,76 @@
+<div ng-controller="myController">
+    {{data.time}}
+
+    <br/>
+
+  <br/>
+    <button ng-click="updateTime()">update time - ng-click</button>
+    <button id="updateTimeButton"  >update time</button>
+  <div> <h2>Demo to check filter functionality with currency number json lowercase uppercase date</h2> </div>
+<div> <span  ng-if="showData"  ng-bind="data.time | date:'yyyy-MM-dd'"></span> </div>
+  <div> <span  ng-if="showData"  ng-bind="money | currency"></span> </div>
+  <div> <span  ng-if="showData"  ng-bind="money | currency:'£'"></span> </div>
+  <div> <span  ng-if="showData"  ng-bind="money | number:'3'"></span> </div>
+  <div> <span  ng-if="showData"  ng-bind="name | lowercase"></span> </div>
+  <div> <span  ng-if="showData"  ng-bind="name | uppercase"></span> </div>
+  <div> <span  ng-if="showData"  ng-bind="list | json"></span> </div>
+
+  <div> <h1>Demo ng-repeat</h1> </div>
+  <div>
+    <ol>
+    <li ng-repeat="(name, value) in list | limitTo: 2">{{name}} = {{value}}</li>
+  </ol>
+      <div ng-repeat="(name, value) in list">{{$middle}}</div>
+  </div>
+  <div> <h1>Demo ng-repeat-start end</h1>
+    <ol>
+      <li ng-repeat-start="(name, value) in list">{{name}}</li>
+      <li ng-repeat-end>{{value}}</li>
+    </ol>
+  </div>
+
+  <div> <h1>Demo limit the array with filter</h1> </div>
+  <div>
+    <ol>
+      <li ng-repeat="li in list | limitTo:1">{{li}}</li>
+    </ol>
+  </div>
+  <div> <h1> To check two way databinding</h1> </div>
+  <form>
+    <input type="text" name="firstName" ng-model="myForm.firstName"> First name <br/>
+    <input type="text" name="lastName"  ng-model="myForm.lastName"> Last name <br/>
+  </form>
+
+  <div>
+    {{myForm.firstName}} {{myForm.lastName}}
+  </div>
+
+  <div> <h1> To check Custom directive</h1> </div>
+  <diva></diva>
+
+  <div> <h1> isolated scope (child to parent)</h1> </div>
+  <phone dial="callHome(message)"></phone>
+
+  <div> <h1>  isolated scope (parent to child)</h1> </div>
+  <input type="text" ng-model="ctrlFlavour" />
+  <div drink flavour="{{ctrlFlavour}}"></div>
+
+  <div> <h1>  isolated scope (two way data binding)</h1> </div>
+  Ctrl:
+  <input type="text" ng-model="ctrlFlavour" /><br/>
+  Directive:
+  <div drinktwo flavour="ctrlFlavour"></div>
+  <div> <h1>  compile link functionality</h1> </div>
+  <compilink>This will be replaced</compilink>
+
+  <!--  to check comment- M custom directive functionality -->
+  <!-- directive: my-directive-name this is all an argument -->
+
+  <div> <h1>  custom class directive (css)</h1> </div>
+  <div class="graybg float">
+    <input type="checkbox" ng-model="settings.Window.Transparent"/>
+    <div class="customstyle" my-transparent="settings.Window.Transparent" my-bgcolor="{{settings.Window.BackgroundColor}}">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+
+</div>
